@@ -1,13 +1,29 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- 폴더에 넣지 마세요!!!!!!! 루트 경로에 있어야됨!!! -->
 <html lang="ko"> <!-- 문서의 전체를 나타내는 범위--> <!-- en에서 ko로 바꿔주면 번역기탭 안 뜸-->
     <head> <!-- 문서의 정보를 나타내는 범위 (invisible)-->
+        <!-- 메타는 정보-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="./main.css"> <!-- css와 연결 -->
+        <title>Heropy</title> <!-- 크롬 탭 이름(제목)-->
+        <link rel="stylesheet" href="./css/main.css"> <!-- css와 연결, rel은 html 파일과 무슨 관계인지 -->
+        <link rel="icon" href = "./favicon.png"> <!-- 파비콘: 탭의 아이콘 -->
+        <script src="./js/main.js"></script> <!-- 또는 style 태그처럼 안에 js 내용을 적어줄수도 있음 -->
+        <!-- css에 들어가는 부분 -->
+        <style> 
+            div{
+                text-decoration: underline;
+            }
+        </style>
     </head>
 
     <body> <!--문서의 구조를 나타내는 범위-->
-     <div>Hello World!</div>
+     <div>
+        
+     </div>
+     <!-- alt: 이미지가 출력되지 않았을 때의 대체 텍스트 -->
+     <!-- <img src="https://heropy.blog/css/images/logo.png" alt="Heropy">-->
+     <a href="https://naver.com">NAVER</a>
+     <a href="about/">About</a> <!-- 폴더명만 적어두면 그 폴더 안에 있는 index.html 파일을 찾아서 보여줌 (index가 디폴트)-->
+     <a href="login/">Login</a>
     </body>
 </html>
