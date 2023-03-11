@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script defer src="./main.js"></script>
+</head>
+<body>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+   <!--이친구는 body에 들어가야 js가 box를 읽을 수 있다. html은 톱다운 방식으로 읽기 때문에 그냥 head에 넣으면 .box를 null로 읽어버림! defer를 추가하고 head부분에 넣자 -->
+</body>
+</html>

@@ -1,0 +1,21 @@
+@import url("./box.css");
+/* div {
+  width: 200px;
+  height: 100px;
+} */
+
+.box{
+  width:100px;
+  height: 100px;
+  background-color: aqua;
+  transition: 1s;
+}
+
+.box:active { /*가상 클래스 선택자 : 우와아아아아아아아 이 클래스에 호버링을 하면 이렇게 된다~ */ 
+  width: 300px;
+  background-color: royalblue;
+}
+
+input:focus{
+  background-color: aquamarine;
+}
