@@ -16,6 +16,8 @@ searchInputEl.addEventListener('blur', function(){ // focus가 해제 되면
 });
 
 
+const toTopEl = document.querySelector('#to-top');
+
 const badgeEl = document.querySelector('header .badges');
 window.addEventListener('scroll', _.throttle( function () {
   //console.log(window.scrollY);
@@ -26,6 +28,14 @@ window.addEventListener('scroll', _.throttle( function () {
       opacity: 0,
       display: 'none'
     }); 
+
+    //top 버튼 보이기
+    gsap.to(toTopEl, 
+      .2, 
+    {
+      x: 0 //버튼이 다시 나타나도록 
+    }
+  );
   }
   else
   {
@@ -35,8 +45,25 @@ window.addEventListener('scroll', _.throttle( function () {
       opacity: 1,
       display: 'block'
     }); 
+
+    //top 버튼 숨기기 
+    gsap.to( // 굳이 el변수에 할당하지 않아도 선택자로도 찾을 수는 있음
+      toTopEl, 
+      .2, 
+      {
+        x: 100 //버튼이 오른쪽으로 숨겨지도록 하기
+      }
+    );
   }
 }, 300));
+
+
+toTopEl.addEventListener('click', ()=>{
+  gsap.to(window, .7, {
+    scrollTo: 0 // 스크롤을 0으로 지정해주겠단 뜻
+  });
+})
+
 
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 fadeEls.forEach(function(fadeEl, index) {
@@ -67,6 +94,17 @@ new Swiper('.promotion .swiper-container',{
   navigation: {
     prevEl: '.promotion .swiper-prev',
     nextEl: '.promotion .swiper-next'
+  }
+});
+
+new Swiper('.awards .swiper-container', {
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5,//하나의 화면에 몇개의 슬라이드를 보일건지
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next'
   }
 });
 
@@ -110,3 +148,18 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', .5, 15);
 floatingObject('.floating3', 1.5, 20);
+
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach((spyEl)=> {
+  new ScrollMagic
+  .Scene({
+    //내가 감시하고 있는 하나의 section element= spyEl
+    triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정 
+    triggerHook: .8 // 세로의 뷰포트 기준 (맨 위가 0, 맨 아래가 1) 0.8 지점에 "걸리면" trigger가 동작, 아래의 함수 동작시킴
+  })
+  .setClassToggle(spyEl, 'show') 
+  .addTo(new ScrollMagic.Controller());
+});
+
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear(); // year만 따오기 
